@@ -31,6 +31,7 @@
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^5.0.3",
     "gulp-sass": "^4.0.2",
+    "gulp-stylelint": "^8.0.0",
     "gulp-uglify": "^3.0.1"
   }
 }

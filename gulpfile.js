@@ -5,6 +5,7 @@ const htmlCompressor = require(`gulp-htmlmin`);
 const htmlValidator = require(`gulp-html`);
 const jsLinter = require(`gulp-eslint`);
 const jsCompressor = require(`gulp-uglify`);
+const cssLinter = require(`gulp-stylelint`);
 const browserSync = require(`browser-sync`);
 const reload = browserSync.reload;
 let browserChoice = `default`;
@@ -50,6 +51,16 @@ let compileCSSForProd = () => {
         .pipe(dest(`prod/styles`));
 };
 
+let lintCSS = () => {
+    return src(`dev/css/*.css`)
+        .pipe(cssLinter({
+            failAfterError: true,
+            reporters: [
+                {formatter: `verbose`, console: true}
+            ]
+        }));
+};
+
 let transpileJSForDev = () => {
     return src(`dev/scripts/*.js`)
         .pipe(babel())
@@ -91,6 +102,7 @@ exports.validateHTML = validateHTML;
 exports.compressHTML = compressHTML;
 exports.compileCSSForDev = compileCSSForDev;
 exports.compileCSSForProd = compileCSSForProd;
+exports.lintCSS = lintCSS;
 exports.transpileJSForDev = transpileJSForDev;
 exports.transpileJSForProd = transpileJSForProd;
 exports.lintJS = lintJS;
