@@ -125,6 +125,7 @@ let dev = () => {
     ).on(`change`, reload);
 };
 
+exports.allBrowsers = series(allBrowsers, dev);
 exports.validateHTML = validateHTML;
 exports.compressHTML = compressHTML;
 exports.compileCSSForDev = compileCSSForDev;
