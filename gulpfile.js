@@ -32,5 +32,15 @@ let compressHTML = () => {
         .pipe(dest(`prod`));
 };
 
+let compileCSSForDev = () => {
+    return src(`dev/styles/main.scss`)
+        .pipe(sass({
+            outputStyle: `expanded`,
+            precision: 10
+        }).on(`error`, sass.logError))
+        .pipe(dest(`temp/styles`));
+};
+
 exports.validateHTML = validateHTML;
 exports.compressHTML = compressHTML;
+exports.compileCSSForDev = compileCSSForDev;
