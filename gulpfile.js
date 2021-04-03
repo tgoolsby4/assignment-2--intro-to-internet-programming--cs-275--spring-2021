@@ -98,6 +98,33 @@ let lintJS = () => {
         .pipe(jsLinter.formatEach(`compact`, process.stderr));
 };
 
+let dev = () => {
+    browserSync({
+        notify: true,
+        reloadDelay: 10,
+        browser: browserChoice,
+        server: {
+            baseDir: [
+                `temp`,
+                `dev`,
+                `dev/html`
+            ]
+        }
+    });
+
+    watch(`dev/scripts/*.js`,
+        series(lintJS, transpileJSForDev)
+    ).on(`change`, reload);
+
+    watch(`dev/styles/**/*.css`,
+        series(compileCSSForDev)
+    ).on(`change`, reload);
+
+    watch(`dev/html/**/*.html`,
+        series(validateHTML)
+    ).on(`change`, reload);
+};
+
 exports.validateHTML = validateHTML;
 exports.compressHTML = compressHTML;
 exports.compileCSSForDev = compileCSSForDev;
@@ -106,3 +133,4 @@ exports.lintCSS = lintCSS;
 exports.transpileJSForDev = transpileJSForDev;
 exports.transpileJSForProd = transpileJSForProd;
 exports.lintJS = lintJS;
+exports.dev = series(lintCSS, compileCSSForDev, lintJS, transpileJSForDev, validateHTML, dev);
