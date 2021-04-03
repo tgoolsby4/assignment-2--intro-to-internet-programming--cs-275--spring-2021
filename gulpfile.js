@@ -8,3 +8,22 @@ const jsCompressor = require(`gulp-uglify`);
 const browserSync = require(`browser-sync`);
 const reload = browserSync.reload;
 let browserChoice = `default`;
+
+async function allBrowsers () {
+    browserChoice = [
+        `safari`,
+        `firefox`,
+        `google chrome`,
+        `opera`,
+        `microsoft-edge`
+    ];
+}
+
+let validateHTML = () => {
+    return src([
+        `dev/html/*.html`,
+        `dev/html/**/*.html`])
+        .pipe(htmlValidator());
+};
+
+exports.validateHTML = validateHTML;
