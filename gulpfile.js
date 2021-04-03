@@ -41,6 +41,16 @@ let compileCSSForDev = () => {
         .pipe(dest(`temp/styles`));
 };
 
+let compileCSSForProd = () => {
+    return src(`dev/styles/main.scss`)
+        .pipe(sass({
+            outputStyle: `compressed`,
+            precision: 10
+        }).on(`error`, sass.logError))
+        .pipe(dest(`prod/styles`));
+};
+
 exports.validateHTML = validateHTML;
 exports.compressHTML = compressHTML;
 exports.compileCSSForDev = compileCSSForDev;
+exports.compileCSSForProd = compileCSSForProd;
