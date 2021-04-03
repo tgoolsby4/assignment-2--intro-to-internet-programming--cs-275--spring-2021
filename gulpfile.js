@@ -50,7 +50,14 @@ let compileCSSForProd = () => {
         .pipe(dest(`prod/styles`));
 };
 
+let transpileJSForDev = () => {
+    return src(`dev/scripts/*.js`)
+        .pipe(babel())
+        .pipe(dest(`temp/scripts`));
+};
+
 exports.validateHTML = validateHTML;
 exports.compressHTML = compressHTML;
 exports.compileCSSForDev = compileCSSForDev;
 exports.compileCSSForProd = compileCSSForProd;
+exports.transpileJSForDev = transpileJSForDev;
