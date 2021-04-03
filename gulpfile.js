@@ -56,8 +56,16 @@ let transpileJSForDev = () => {
         .pipe(dest(`temp/scripts`));
 };
 
+let transpileJSForProd = () => {
+    return src(`dev/scripts/*.js`)
+        .pipe(babel())
+        .pipe(jsCompressor())
+        .pipe(dest(`prod/scripts`));
+};
+
 exports.validateHTML = validateHTML;
 exports.compressHTML = compressHTML;
 exports.compileCSSForDev = compileCSSForDev;
 exports.compileCSSForProd = compileCSSForProd;
 exports.transpileJSForDev = transpileJSForDev;
+exports.transpileJSForProd = transpileJSForProd;
