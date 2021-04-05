@@ -10,3 +10,12 @@ header {
 h1 {
   margin-bottom: -15px;
 }
+
+main {
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
