@@ -29,7 +29,7 @@ let validateHTML = () => {
 let compressHTML = () => {
     return src(`html/index.html`)
         .pipe(htmlCompressor({collapseWhitespace: true}))
-        .pipe(dest(`prod`));
+        .pipe(dest(`prod/html`));
 };
 
 let compileCSSForDev = () => {
