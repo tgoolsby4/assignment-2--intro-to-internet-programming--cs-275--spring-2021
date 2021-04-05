@@ -101,7 +101,6 @@ let dev = () => {
     browserSync({
         notify: true,
         reloadDelay: 10,
-        browser: browserChoice,
         server: {
             baseDir: [
                 `temp`,
@@ -117,7 +116,7 @@ let dev = () => {
     ).on(`change`, reload);
 
     watch(`css/style.css`,
-        series(compileCSSForDev)
+        series(lintCSS, compileCSSForDev)
     ).on(`change`, reload);
 
     watch(`html/index.html`,
