@@ -21,38 +21,37 @@ async function allBrowsers () {
 }
 
 let validateHTML = () => {
-    return src([
-        `dev/html/*.html`,
-        `dev/html/**/*.html`])
+    return src(
+        `html/index.html`)
         .pipe(htmlValidator());
 };
 
 let compressHTML = () => {
-    return src([`dev/html/*.html`,`dev/html/**/*.html`])
+    return src(`html/index.html`)
         .pipe(htmlCompressor({collapseWhitespace: true}))
         .pipe(dest(`prod`));
 };
 
 let compileCSSForDev = () => {
-    return src(`dev/styles/main.scss`)
+    return src(`css/style.css`)
         .pipe(sass({
             outputStyle: `expanded`,
             precision: 10
         }).on(`error`, sass.logError))
-        .pipe(dest(`temp/styles`));
+        .pipe(dest(`temp/css`));
 };
 
 let compileCSSForProd = () => {
-    return src(`dev/styles/main.scss`)
+    return src(`css/style.css`)
         .pipe(sass({
             outputStyle: `compressed`,
             precision: 10
         }).on(`error`, sass.logError))
-        .pipe(dest(`prod/styles`));
+        .pipe(dest(`prod/css`));
 };
 
 let lintCSS = () => {
-    return src(`dev/css/*.css`)
+    return src(`css/style.css`)
         .pipe(cssLinter({
             failAfterError: true,
             reporters: [
@@ -62,20 +61,20 @@ let lintCSS = () => {
 };
 
 let transpileJSForDev = () => {
-    return src(`dev/scripts/*.js`)
+    return src(`js/app.js`)
         .pipe(babel())
-        .pipe(dest(`temp/scripts`));
+        .pipe(dest(`temp/js`));
 };
 
 let transpileJSForProd = () => {
-    return src(`dev/scripts/*.js`)
+    return src(`js/app.js`)
         .pipe(babel())
         .pipe(jsCompressor())
-        .pipe(dest(`prod/scripts`));
+        .pipe(dest(`prod/js`));
 };
 
 let lintJS = () => {
-    return src(`dev/scripts/*.js`)
+    return src(`js/app.js`)
         .pipe(jsLinter({
             parserOptions: {
                 ecmaVersion: 2017,
@@ -106,21 +105,22 @@ let dev = () => {
         server: {
             baseDir: [
                 `temp`,
-                `dev`,
-                `dev/html`
+                `html`,
+                `css`,
+                `js`
             ]
         }
     });
 
-    watch(`dev/scripts/*.js`,
+    watch(`js/app.js`,
         series(lintJS, transpileJSForDev)
     ).on(`change`, reload);
 
-    watch(`dev/styles/**/*.css`,
+    watch(`css/style.css`,
         series(compileCSSForDev)
     ).on(`change`, reload);
 
-    watch(`dev/html/**/*.html`,
+    watch(`html/index.html`,
         series(validateHTML)
     ).on(`change`, reload);
 };
