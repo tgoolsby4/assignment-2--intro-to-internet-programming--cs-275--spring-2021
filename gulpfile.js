@@ -38,7 +38,7 @@ let compileCSSForDev = () => {
             outputStyle: `expanded`,
             precision: 10
         }).on(`error`, sass.logError))
-        .pipe(dest(`temp/css`));
+        .pipe(dest(`dev/css`));
 };
 
 let compileCSSForProd = () => {
@@ -63,7 +63,7 @@ let lintCSS = () => {
 let transpileJSForDev = () => {
     return src(`js/app.js`)
         .pipe(babel())
-        .pipe(dest(`temp/js`));
+        .pipe(dest(`dev/js`));
 };
 
 let transpileJSForProd = () => {
@@ -103,7 +103,7 @@ let dev = () => {
         reloadDelay: 10,
         server: {
             baseDir: [
-                `temp`,
+                `dev`,
                 `html`,
                 `css`,
                 `js`
