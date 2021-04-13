@@ -24,3 +24,7 @@ main {
   background: hsl(156, 32%, 43%);
   color: hsl(0, 0%, 90%);
 }
+
+#rice {
+  font-size: 24px;
+}
