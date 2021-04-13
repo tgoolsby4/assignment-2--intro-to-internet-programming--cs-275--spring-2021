@@ -1,6 +1,6 @@
 body {
-  background: white;
-  color: black;
+  background: hsl(40, 80%, 80%);
+  color: hsl(0, 0%, 30%);
 }
 
 header {
