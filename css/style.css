@@ -1,6 +1,6 @@
 body {
-  background: hsl(40, 80%, 80%);
-  color: hsl(0, 0%, 30%);
+  background: hsl(156, 23%, 66%);
+  color: hsl(0, 0%, 15%);
 }
 
 header {
@@ -21,6 +21,6 @@ main {
 }
 
 .button1 {
-  background: hsl(40, 80%, 65%);
-  color: hsl(0, 0%, 30%);
+  background: hsl(156, 32%, 43%);
+  color: hsl(0, 0%, 90%);
 }
