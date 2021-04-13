@@ -25,6 +25,11 @@ main {
   color: hsl(0, 0%, 90%);
 }
 
+#query {
+  margin-top: 60px;
+  font-size: 24px;
+}
+
 #rice {
   font-size: 24px;
 }
