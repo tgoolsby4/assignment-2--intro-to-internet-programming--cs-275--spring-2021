@@ -7,7 +7,7 @@ window.onload = () => {
         let water_val = 2;
         let rice = document.getElementById(`rice`);
         rice.innerHTML = `<b>Making White Rice</b> <br><br>
-          cup of rice requires 2 cups of water. <br><br>
+          1 cup of rice requires 2 cups of water. <br><br>
           How many cups of rice?
           <input type="number"> <br><br>
           Combine ` + rice_val + ` cup of rice with ` + water_val + 
