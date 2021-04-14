@@ -5,6 +5,7 @@ window.onload = () => {
     let white = () => {
         let rice = document.getElementById(`rice`);
         rice.innerHTML = `<b>Making White Rice</b> <br><br>
+          1 cup of rice requires 2 cups of water. <br><br>
           Combine 1 cup of rice with 2 cups of water and 1 Tbsp
           olive oil. Bring to a boil, then reduce heat to the lowest setting. 
           Cook for about 18 minutes.`;
@@ -13,6 +14,7 @@ window.onload = () => {
     let california = () => {
         let rice = document.getElementById(`rice`);
         rice.innerHTML = `<b>Making Sprouted California Rice</b> <br><br>
+          1 cup of rice requires 1.6 cups of water. <br><br>
           For slightly al dente rice:
           Combine 1 1/4 cups of rice with 2 cups of water or broth and
           1 Tbsp olive oil. Bring to a boil and stir once to mix.
