@@ -47,7 +47,7 @@ window.onload = () => {
                 let cro = document.querySelector(`#caliricevar`);
                 let cwo = document.querySelector(`#caliwatervar`);
                 cro.value = ccups;
-                cwo.value = ccups*1.6;
+                cwo.value = Math.round((ccups*1.6)*10)/10;
             }
         });
     };
