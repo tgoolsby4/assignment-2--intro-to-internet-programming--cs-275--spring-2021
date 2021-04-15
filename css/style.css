@@ -41,3 +41,10 @@ main {
   padding-right: 200px;
   padding-left: 200px;
 }
+
+#input {
+  font-size: 24px;
+  text-align: justify;
+  padding-right: 200px;
+  padding-left: 200px;
+}
