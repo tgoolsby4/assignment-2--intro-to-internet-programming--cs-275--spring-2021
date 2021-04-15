@@ -9,7 +9,7 @@ window.onload = () => {
         rice.innerHTML = `<p><b>Making White Rice</b> <br><br>
           1 cup of rice requires 2 cups of water. <br><br>
           How many cups of rice?
-          <input type="number"> <br><br>
+          <input id="wcups" type="number" placeholder="Cups of Rice" name="cupamount"> <br><br>
           Combine ` + rice_val + ` cup of rice with ` + water_val + 
           ` cups of water and 1 Tbsp
           olive oil. Bring to a boil, then reduce heat to the lowest setting. 
@@ -23,7 +23,7 @@ window.onload = () => {
         rice.innerHTML = `<p><b>Making Sprouted California Rice</b> <br><br>
           1 cup of rice requires 1.6 cups of water. <br><br>
           How many cups of rice?
-          <input type="number"> <br><br>
+          <input id="ccups" type="number" placeholder="Cups of Rice" name="cupamount"> <br><br>
           For slightly al dente rice:
           Combine ` + rice_val + ` cups of rice with ` + water_val + 
           ` cups of water or broth and

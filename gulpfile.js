@@ -12,24 +12,21 @@ let browserChoice = `default`;
 
 async function allBrowsers () {
     browserChoice = [
-        `safari`,
         `firefox`,
-        `google chrome`,
-        `opera`,
-        `microsoft-edge`
+        `google chrome`
     ];
 }
 
 let validateHTML = () => {
     return src(
-        `html/index.html`)
+        `index.html`)
         .pipe(htmlValidator());
 };
 
 let compressHTML = () => {
-    return src(`html/index.html`)
+    return src(`index.html`)
         .pipe(htmlCompressor({collapseWhitespace: true}))
-        .pipe(dest(`prod/html`));
+        .pipe(dest(`prod`));
 };
 
 let compileCSSForDev = () => {
@@ -103,10 +100,7 @@ let dev = () => {
         reloadDelay: 10,
         server: {
             baseDir: [
-                `dev`,
-                `html`,
-                `css`,
-                `js`
+                `./`
             ]
         }
     });
@@ -119,7 +113,7 @@ let dev = () => {
         series(lintCSS, compileCSSForDev)
     ).on(`change`, reload);
 
-    watch(`html/index.html`,
+    watch(`index.html`,
         series(validateHTML)
     ).on(`change`, reload);
 };
