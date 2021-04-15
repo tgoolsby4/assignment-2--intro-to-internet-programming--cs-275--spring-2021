@@ -6,7 +6,6 @@ window.onload = () => {
     let white = () => {
         let rice = document.querySelector(`#rice`);
         rice.innerHTML = `<b>Making White Rice</b> <br><br>
-            1 cup of rice requires 2 cups of water. <br><br>
             Combine <output id="whitericevar"></output> cup of rice with 
             <output id="whitewatervar"></output> 
             cups of water and 1 Tbsp olive oil. 
@@ -29,7 +28,6 @@ window.onload = () => {
     let california = () => {
         let rice = document.querySelector(`#rice`);
         rice.innerHTML = `<b>Making Sprouted California Rice</b> <br><br>
-            1 cup of rice requires 1.6 cups of water. <br><br>
             For slightly al dente rice: Combine <output id="caliricevar"></output> 
             cups of rice with <output id="caliwatervar"></output> cups 
             of water or broth and 1 Tbsp olive oil. 
