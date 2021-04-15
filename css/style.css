@@ -35,16 +35,18 @@ main {
   font-size: 24px;
 }
 
-#rice {
+#whiterice {
   font-size: 24px;
   text-align: justify;
   padding-right: 200px;
   padding-left: 200px;
+  visibility: hidden;
 }
 
-#amount {
+#calirice {
   font-size: 24px;
   text-align: justify;
   padding-right: 200px;
   padding-left: 200px;
+  visibility: hidden;
 }
