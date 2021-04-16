@@ -6,8 +6,8 @@ window.onload = () => {
     let white = () => {
         let rice = document.querySelector(`#rice`);
         rice.innerHTML = `<b>Making White Rice</b> <br><br>
-            Combine <output id="whitericevar"></output> cup of rice with 
-            <output id="whitewatervar"></output> 
+            Combine <output id="whitericevar">1</output> cup of rice with 
+            <output id="whitewatervar">2</output> 
             cups of water and 1 Tbsp olive oil. 
             Bring to a boil, then reduce heat to the lowest setting. 
             Cook for about 18 minutes.`;
@@ -28,8 +28,9 @@ window.onload = () => {
     let california = () => {
         let rice = document.querySelector(`#rice`);
         rice.innerHTML = `<b>Making Sprouted California Rice</b> <br><br>
-            For slightly al dente rice: Combine <output id="caliricevar"></output> 
-            cups of rice with <output id="caliwatervar"></output> cups 
+            For slightly al dente rice: Combine 
+            <output id="caliricevar">1.25</output> 
+            cups of rice with <output id="caliwatervar">2</output> cups 
             of water or broth and 1 Tbsp olive oil. 
             Bring to a boil and stir once to mix. 
             Reduce heat to low, cover with a tight-fitting lid and cook 
